@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Absensi Basketball</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid black;
+        }
+
+        .header a {
+            text-decoration: none;
+            color: black;
+            font-size: 22px;
+            position: absolute;
+            left: 0;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin: 0;
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: transparent;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        th {
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="javascript:window.history.length > 1 ? window.history.back() : window.location.href='beranda.html'">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <h1>ABSENSI BASKETBALL</h1>
+        </div>
+        <h2>Daftar Siswa</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Kelas</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>M. Akbar</td>
+                    <td>XI RPL 1</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Deigla Arjuna</td>
+                    <td>XI RPL 1</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Alipa</td>
+                    <td>XI RPL 1</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Ai Rosmawati</td>
+                    <td>XI RPL 1</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Tesha</td>
+                    <td>XI RPL 1</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Rizal</td>
+                    <td>XI RPL 1</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Afdal</td>
+                    <td>XI RPL 2</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Farhan</td>
+                    <td>XI RPL 2</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Zahwan</td>
+                    <td>XI RPL 3</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Esa</td>
+                    <td>XI RPL 3</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>M. Ikbal</td>
+                    <td>XI TBSM 1</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Rangga</td>
+                    <td>X ATPH</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Labib</td>
+                    <td>X RPL 3</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Adit</td>
+                    <td>X RPL 3</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Dea</td>
+                    <td>X RPL 2</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        window.onload = function() {
+
+            var params = new URLSearchParams(window.location.search);
+            var nama = params.get("nama");
+            var status = params.get("status");
+
+            var rows = document.querySelectorAll("tbody tr");
+
+            rows.forEach(function(row) {
+                var cells = row.getElementsByTagName("td");
+                var namaCell = cells[0];
+
+                if (namaCell.textContent === nama) {
+                    var statusCell = cells[2];
+                    statusCell.textContent = status === "H" ? "Hadir" : status === "S" ? "Sakit" : "Izin";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

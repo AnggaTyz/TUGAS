@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absensi Basketball</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #8FA6A8;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .navbar {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            padding: 25px 0;
+        }
+
+        .navbar .back-btn {
+            position: absolute;
+            left: 20px;
+            font-size: 40px; 
+            color: black;
+            cursor: pointer;
+            text-decoration: none; 
+        }
+
+        .navbar .title {
+            font-size: 32px; 
+            font-weight: bold;
+            color: black;
+        }
+
+        .line {
+            width: 100%;
+            height: 2px;
+            background-color: black;
+            margin-top: 15px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+            width: 90%;
+            max-width: 700px; 
+        }
+
+        .header {
+            font-size: 36px; 
+            font-weight: bold;
+            color: black;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .input-group input {
+            width: 100%;
+            max-width: 500px; 
+            padding: 15px;
+            border: 2px solid #8FA6A8;
+            border-radius: 25px;
+            font-size: 20px; 
+            text-align: center;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #6A5ACD;
+            box-shadow: 0 0 5px rgba(106, 90, 205, 0.5);
+        }
+
+        .status-group {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .status-group div {
+            font-size: 26px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .status-group label {
+            font-size: 24px; 
+            font-weight: bold;
+            color: black;
+            cursor: pointer;
+            margin: 0 25px;
+        }
+
+        .status-group input[type="radio"] {
+            margin-left: 10px; 
+            transform: scale(2); 
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            background-color: #6A5ACD;
+            color: white;
+            padding: 15px 30px; 
+            border: none;
+            border-radius: 25px;
+            font-size: 20px; 
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            max-width: 500px; 
+            text-align: center;
+        }
+
+        .submit-btn:hover {
+            background-color: #483D8B;
+        }
+
+        /* Styling for daftar.html */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: transparent;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 15px; 
+            text-align: center;
+            font-size: 18px; 
+        }
+
+        th {
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1; 
+        }
+    </style>
+    <script>
+        function kirimAbsensi() {
+            var nama = document.querySelector('input[name="nama"]').value;
+            var status = document.querySelector('input[name="status"]:checked').value;
+
+
+            window.location.href = "daftar.html?nama=" + encodeURIComponent(nama) + "&status=" + encodeURIComponent(status);
+        }
+    </script>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="beranda.html" class="back-btn">&#8592;</a> 
+        <div class="title">ABSENSI BASKETBALL</div>
+    </div>
+    <div class="line"></div>
+    <div class="content">
+        <div class="header">Beranda</div>
+        <div class="input-group">
+            <div>Masukkan nama lengkap</div>
+            <input type="text" name="nama" placeholder="Nama lengkap">
+        </div>
+        <div class="status-group">
+            <div>Status</div>
+            <label>H <input type="radio" name="status" value="H"></label>
+            <label>S <input type="radio" name="status" value="S"></label>
+            <label>I <input type="radio" name="status" value="I"></label>
+        </div>
+        <button class="submit-btn" onclick="kirimAbsensi()">Kirim</button>
+    </div>
+</body>
+</html>
